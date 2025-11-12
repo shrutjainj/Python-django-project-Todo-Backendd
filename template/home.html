@@ -1,4 +1,5 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,10 +39,12 @@
                     </div>
                 </div>
                 {% endfor %}
+
             </div>
             <div class="col-md-5 col-lg-5">
                 <h5>Completed Tasks</h5>
                 <!-- List of all the tasks that have completed -->
+                 
                 {% for task in completed_tasks %}
                 <div class="card m-1">
                     <div class="card-body">
@@ -58,7 +61,7 @@
             <div class="col-md-6 col-lg-6 p-0" style="position: absolute; bottom: 50px;">
                 <!-- To Do Form -->
                 <form action="{% url 'addTask' %}" method="POST">
-                    {% csrf_token %}
+                    {% csrf_token %} # It is used by that server side to keep your form secure
                     <div class="form-group">
                         <span style="display: flex;">
                             <input type="text" name="task" class="form-control" placeholder="Add a task">
